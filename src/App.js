@@ -19,12 +19,14 @@ class TodoForm extends Component {
     this.handleInputForm = this.handleInputForm.bind(this)
   }
 
-  
-
   handleInputForm(e) {
     this.setState({
       value: e.target.value
     })
+  }
+
+  handleSomething(val) {
+    console.log(val)
   }
 
   render() {
@@ -37,8 +39,10 @@ class TodoForm extends Component {
           value={this.state.value}
           onChange={this.handleInputForm}
         />
-        <button>+</button>
-        {this.state.value}
+        <button 
+          onClick={() => this.handleSomething('สมชาย')}
+        >+</button>
+        <p>{this.state.value}</p> 
       </div>
     )
   }
