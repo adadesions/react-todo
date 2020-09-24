@@ -90,20 +90,33 @@ const TodoList = ({tasks}) => {
 class TodoContainer extends Component {
   constructor(prop) {
     super(prop)
+    this.state = {
+      data: [
+        {id: 0, task: 'Today we\'re going to learn reactjs'},
+        {id: 1, task: 'Tomorrow we have a test'},
+        {id: 2, task: 'Let\'s find something to eat'},
+      ]
+    }
+
+    this.addTask = this.addTask.bind(this)
+  }
+
+  addTask(task) {
+    let id = this.state.data.length + 1
+    let newTask = {id, task}
+
+    this.state.data.push(newTask) // Locally
+    this.setState({               // Globally, tell whole to update
+      data: this.state.data
+    })
   }
 
   render() {
-    const mockData = [
-    {id: 0, task: 'Today we\'re going to learn reactjs'},
-    {id: 1, task: 'Tomorrow we have a test'},
-    {id: 2, task: 'Let\'s find something to eat'},
-  ]
-
     return (
       <div className="todo-container">
         <AppTitle text="Ada Todos App"/>
-        <TodoForm />
-        <TodoList tasks={mockData} />
+        <TodoForm addTask={this.addTask} />
+        <TodoList tasks={this.state.data} />
       </div>
     );
   }
