@@ -16,7 +16,9 @@ const AppTitle = ({ text }) => {
 
 const NumberOfList = ({curNum, maxNum}) => {
     return (
-        <p> Number of tasks: {curNum}/{maxNum}</p>
+        <p style={{marginTop: '1em'}}>
+            Number of tasks: {curNum}/{maxNum}
+        </p>
     )
 }
 

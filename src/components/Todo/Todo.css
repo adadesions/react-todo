@@ -9,9 +9,7 @@
 }
 
 .delete-btn:hover {
-    border: 1px solid #FF0000;
-    border-radius: 0.2em;
-    padding: 0.2em;
+    cursor: pointer;
 }
 
 .delete-icon-btn {
@@ -23,7 +21,8 @@
 }
 
 .todo-item:hover {
-    background-color: rgba(200, 100, 120, 0.3)
+    background-color: rgba(255, 100, 100, 0.3);
+    border-radius: 0.5em;
 }
 
 .my-form {
@@ -35,4 +34,8 @@
 
 .my-form:focus {
     outline: none;
+}
+
+.todo-form {
+    margin-bottom: 1em;
 }
