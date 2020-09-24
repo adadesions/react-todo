@@ -16,7 +16,14 @@ const AppTitle = ({ text }) => {
 
 const NumberOfList = ({curNum, maxNum}) => {
     return (
-        <p style={{marginTop: '1em'}}>
+        <p 
+            style={
+                    {
+                        marginTop: '1em',
+                        fontWeight: 'bold'
+                    }
+                }
+        >
             Number of tasks: {curNum}/{maxNum}
         </p>
     )
