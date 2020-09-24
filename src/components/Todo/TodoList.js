@@ -20,8 +20,10 @@ const TodoList = ({ tasks, removeTask }) => {
     }
 
     return (
-        <div className="todo-list">
-            {allTasks}
+        <div className="row todo-list">
+            <div className="col">
+                {allTasks}
+            </div>
         </div>
     )
 }

@@ -8,7 +8,9 @@ import TodoList from './TodoList'
 // Presentation Component, Stateless
 const AppTitle = ({ text }) => {
     return (
-        <h1>{text}</h1>
+        <div className="row">
+            <h1>{text}</h1>
+        </div>
     )
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Todo.css'
 
 class TodoForm extends Component {
     constructor(props) {
@@ -28,18 +29,25 @@ class TodoForm extends Component {
 
     render() {
         return (
-            <div className="todo-form">
-                <input
-                    ref={node => { this.input = node }}
-                    type="text"
-                    placeholder="Add your new task here!"
-                    value={this.state.value}
-                    onChange={this.handleInputForm}
-                />
-                <button
-                    onClick={this.handleClickBtn}
-                >+</button>
-                <p>{this.state.value}</p>
+            <div className="row todo-form">
+                <div className="col">
+                    <input
+                        className="my-form"
+                        ref={node => { this.input = node }}
+                        type="text"
+                        placeholder="Add your new task here!"
+                        value={this.state.value}
+                        onChange={this.handleInputForm}
+                    />
+                </div>
+                <div className="col">
+                    <button
+                        className="btn btn-outline-success my-btn"
+                        onClick={this.handleClickBtn}
+                    > Add
+                    </button>
+                    <p>{this.state.value}</p>
+                </div>
             </div>
         )
     }

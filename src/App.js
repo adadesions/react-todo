@@ -6,8 +6,10 @@ import TodoContainer from './components/Todo/TodoContainer'
 
 function App() {
   return (
-    <div className="App">
-      <TodoContainer />
+    <div className="container">
+      <div className="row">
+        <TodoContainer />
+      </div>
     </div>
   );
 }
