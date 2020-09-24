@@ -25,3 +25,14 @@
 .todo-item:hover {
     background-color: rgba(200, 100, 120, 0.3)
 }
+
+.my-form {
+    border: 1px solid #FFF;
+    border-bottom: 3px solid rgba(255, 50, 0, 0.3);
+    border-radius: 0.5em;
+    
+}
+
+.my-form:focus {
+    outline: none;
+}

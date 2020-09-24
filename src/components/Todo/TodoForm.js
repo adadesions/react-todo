@@ -46,7 +46,6 @@ class TodoForm extends Component {
                         onClick={this.handleClickBtn}
                     > Add
                     </button>
-                    <p>{this.state.value}</p>
                 </div>
             </div>
         )

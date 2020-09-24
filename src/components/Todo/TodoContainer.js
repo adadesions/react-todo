@@ -14,17 +14,26 @@ const AppTitle = ({ text }) => {
     )
 }
 
+const NumberOfList = ({curNum, maxNum}) => {
+    return (
+        <p> Number of tasks: {curNum}/{maxNum}</p>
+    )
+}
+
+const data = [
+    { id: 0, task: 'Today we\'re going to learn reactjs' },
+    { id: 1, task: 'Tomorrow we have a test' },
+    { id: 2, task: 'Let\'s find something to eat' },
+]
 
 // Container Component, Stateful
 class TodoContainer extends Component {
     constructor(prop) {
         super(prop)
         this.state = {
-            data: [
-                { id: 0, task: 'Today we\'re going to learn reactjs' },
-                { id: 1, task: 'Tomorrow we have a test' },
-                { id: 2, task: 'Let\'s find something to eat' },
-            ]
+            data,
+            curTask: data.length,
+            maxTask: 20
         }
 
         this.addTask = this.addTask.bind(this)
@@ -32,12 +41,13 @@ class TodoContainer extends Component {
     }
 
     addTask(task) {
-        let id = this.state.data.length + 1
+        let id = this.state.data.length
         let newTask = { id, task }
 
         this.state.data.push(newTask) // Locally
         this.setState({               // Globally, tell whole to update
-            data: this.state.data
+            data: this.state.data,
+            curTask: this.state.data.length
         })
     }
 
@@ -50,7 +60,8 @@ class TodoContainer extends Component {
         )
 
         this.setState({
-            data: newTaskList
+            data: newTaskList,
+            curTask: newTaskList.length
         })
     }
 
@@ -60,6 +71,7 @@ class TodoContainer extends Component {
                 <AppTitle text="Ada Todos App" />
                 <TodoForm addTask={this.addTask} />
                 <TodoList tasks={this.state.data} removeTask={this.removeTask} />
+                <NumberOfList curNum={this.state.curTask} maxNum={this.state.maxTask} />
             </div>
         );
     }
