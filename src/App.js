@@ -31,6 +31,7 @@ class TodoForm extends Component {
       this.setState({
         value: ''
       })
+      this.props.addTask(this.input.value)
     }
   }
 
