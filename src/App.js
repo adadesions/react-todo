@@ -53,13 +53,52 @@ class TodoForm extends Component {
   }
 }
 
+const TodoItem = ({task}) => {
+  return (
+    <div className="todo-item">
+      <p>
+        {task}
+        <span className="deleteBtn">
+          X
+        </span>
+      </p>
+    </div>
+  )
+}
+
+
+const TodoList = ({tasks}) => {
+  let allTasks = []
+
+  if (tasks.length > 0) {
+    allTasks = tasks.map( t => {
+      return <TodoItem task={t.task} />
+    })
+  }
+  else {
+    allTasks.push(<h2>No new task found, please add one!</h2>)
+  }
+
+  return (
+    <div className="todo-list">
+      {allTasks}
+    </div>
+  )
+}
 
 // Container Component, Stateful 
 function App() {
+  const mockData = [
+    {id: 0, task: 'Today we\'re going to learn reactjs'},
+    {id: 1, task: 'Tomorrow we have a test'},
+    {id: 2, task: 'Let\'s find something to eat'},
+  ]
+
   return (
     <div className="App">
       <AppTitle text="Ada Todos App"/>
       <TodoForm />
+      <TodoList tasks={mockData} />
     </div>
   );
 }
