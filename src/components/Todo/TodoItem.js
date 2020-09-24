@@ -1,4 +1,5 @@
 import React from 'react'
+import './Todo.css'
 
 const TodoItem = ({ id, task, removeTask }) => {
     return (
@@ -9,8 +10,8 @@ const TodoItem = ({ id, task, removeTask }) => {
                 </p>
             </div>
             <div className="col-2">
-                <span className="deleteBtn" onClick={() => removeTask(id)}>
-                    X
+                <span className="delete-btn" onClick={() => removeTask(id)}>
+                    <i class="far fa-times-circle delete-icon-btn"></i>
                 </span>
             </div>
         </div>

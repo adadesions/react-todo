@@ -7,3 +7,21 @@
     height: 2.5em;
     /* margin-top: 1.5em */
 }
+
+.delete-btn:hover {
+    border: 1px solid #FF0000;
+    border-radius: 0.2em;
+    padding: 0.2em;
+}
+
+.delete-icon-btn {
+    color: #FF0000;
+}
+
+.todo-item {
+    padding-top: 1em;
+}
+
+.todo-item:hover {
+    background-color: rgba(200, 100, 120, 0.3)
+}
