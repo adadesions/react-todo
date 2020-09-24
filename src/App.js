@@ -54,12 +54,12 @@ class TodoForm extends Component {
   }
 }
 
-const TodoItem = ({task}) => {
+const TodoItem = ({id, task, removeTask}) => {
   return (
     <div className="todo-item">
       <p>
         {task}
-        <span className="deleteBtn">
+        <span className="deleteBtn" onClick={() => removeTask(id)}>
           X
         </span>
       </p>
@@ -68,12 +68,17 @@ const TodoItem = ({task}) => {
 }
 
 
-const TodoList = ({tasks}) => {
+const TodoList = ({tasks, removeTask}) => {
   let allTasks = []
 
   if (tasks.length > 0) {
     allTasks = tasks.map( t => {
-      return <TodoItem key={t.id} task={t.task} />
+      return <TodoItem
+                key={t.id}
+                id={t.id}
+                task={t.task}
+                removeTask={removeTask}
+            />
     })
   }
   else {
@@ -100,6 +105,7 @@ class TodoContainer extends Component {
     }
 
     this.addTask = this.addTask.bind(this)
+    this.removeTask = this.removeTask.bind(this)
   }
 
   addTask(task) {
@@ -112,12 +118,25 @@ class TodoContainer extends Component {
     })
   }
 
+  removeTask(id) {
+    const newTaskList = this.state.data.filter(
+      d => {
+        if (d.id !== id)
+          return d
+      }
+    )
+
+    this.setState({
+      data: newTaskList
+    })
+  }
+
   render() {
     return (
       <div className="todo-container">
         <AppTitle text="Ada Todos App"/>
         <TodoForm addTask={this.addTask} />
-        <TodoList tasks={this.state.data} />
+        <TodoList tasks={this.state.data} removeTask={this.removeTask} />
       </div>
     );
   }
