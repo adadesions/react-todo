@@ -17,6 +17,7 @@ class TodoForm extends Component {
     }
 
     this.handleInputForm = this.handleInputForm.bind(this)
+    this.handleClickBtn = this.handleClickBtn.bind(this)
   }
 
   handleInputForm(e) {
@@ -25,8 +26,12 @@ class TodoForm extends Component {
     })
   }
 
-  handleSomething(val) {
-    console.log(val)
+  handleClickBtn() {
+    if (this.input.value !== '') {
+      this.setState({
+        value: ''
+      })
+    }
   }
 
   render() {
@@ -40,7 +45,7 @@ class TodoForm extends Component {
           onChange={this.handleInputForm}
         />
         <button 
-          onClick={() => this.handleSomething('สมชาย')}
+          onClick={this.handleClickBtn}
         >+</button>
         <p>{this.state.value}</p> 
       </div>
