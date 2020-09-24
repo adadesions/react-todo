@@ -72,7 +72,7 @@ const TodoList = ({tasks}) => {
 
   if (tasks.length > 0) {
     allTasks = tasks.map( t => {
-      return <TodoItem task={t.task} />
+      return <TodoItem key={t.id} task={t.task} />
     })
   }
   else {
@@ -86,19 +86,34 @@ const TodoList = ({tasks}) => {
   )
 }
 
-// Container Component, Stateful 
-function App() {
-  const mockData = [
+// Container Component, Stateful
+class TodoContainer extends Component {
+  constructor(prop) {
+    super(prop)
+  }
+
+  render() {
+    const mockData = [
     {id: 0, task: 'Today we\'re going to learn reactjs'},
     {id: 1, task: 'Tomorrow we have a test'},
     {id: 2, task: 'Let\'s find something to eat'},
   ]
 
+    return (
+      <div className="todo-container">
+        <AppTitle text="Ada Todos App"/>
+        <TodoForm />
+        <TodoList tasks={mockData} />
+      </div>
+    );
+  }
+}
+
+
+function App() {
   return (
     <div className="App">
-      <AppTitle text="Ada Todos App"/>
-      <TodoForm />
-      <TodoList tasks={mockData} />
+      <TodoContainer />
     </div>
   );
 }
