@@ -34,7 +34,17 @@ function App() {
         <div className="container-fluid">
           <div className="row">
             <div className="col">
-              <TodoContainer />
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/profile">Profile</Link>
+                </li>
+                <li>
+                  <Link to="/printapp">Print App</Link>
+                </li>
+              </ul>
             </div>
             <div className="col">
               <Switch>
